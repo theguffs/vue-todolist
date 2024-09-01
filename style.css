@@ -106,3 +106,6 @@ main{
 .sales{
     background-color: rgb(176, 201, 38);
 }
+.sbarramento{
+    text-decoration: line-through;
+}

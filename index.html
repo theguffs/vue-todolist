@@ -10,29 +10,28 @@
         <title>Vue To Do List</title>
     </head>
     <body>
-        <!-- header con titolo e logo-->
-        <header>
-            <h1>Toboolist</h1>        
-        </header>
-        <!-- inizio main-->
-        <main>
-            <!-- primo conteiner -->
-            <div class="container top">
-                <div class="add task">add task</div>
-                <h3>&#11206; Today</h3>
-            </div>
-            <!-- ultimo conteiner -->
-            <div class="conteiner bot">
-                <section class="attività" v-for="task in tasks">
-                         <span class="testo"> {{task.title}} </span>
-                         <span class="testo"> {{task.done}} </span>
-                </section>
-                
-            </div>
-        </main>
-        <footer>
-            footer
-        </footer>
+    <!-- header con titolo e logo-->
+    <header>
+        <h1>Toboolist</h1>        
+    </header>
+    <!-- inizio main-->
+    <main>
+        <!-- primo container -->
+        <div class="container top">
+            <div class="add task">add task</div>
+            <h3>&#11206; Today</h3>
+        </div>
+        <!-- ultimo container -->
+        <div class="container bot">
+            <!-- Lista delle attività -->
+            <ul>
+                <li v-for="(task, index) in tasks" :key="task.title" class="attività">
+                    <span class="testo" :class="sbarramento: task.done ">{{ task.title }}</span>
+                    <button @click="removeTask(index)" class="btn btn-danger btn-sm ms-2">x</button>
+                </li>
+            </ul>
+        </div>
+    </main>
         <script src="script.js"></script>
     </body>
 </html>
